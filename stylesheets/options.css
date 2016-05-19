@@ -1,0 +1,366 @@
+body
+{
+    font: normal medium 'Gill Sans', 'Gill Sans MT', 'Goudy Bookletter 1911', 'Linux Libertine O', 'Liberation Serif', Candara, serif;
+    line-height: 1.75;
+    word-spacing: 0.1em;
+    margin: 1em 0;
+    padding: 0;
+}
+
+nav
+{
+    overflow: hidden;
+}
+
+nav ul
+{
+    margin: 0;
+    padding: 0.5em 1em 0 0;
+    text-align: left;
+    border-bottom: 0.1em black solid;
+    list-style-type: none;
+}
+
+nav li
+{
+    display: inline;
+    margin: 0 0 0 1em;
+    padding: 0.4em 1em 0.20em 1em;
+    border-top:   0.1em black solid;
+    border-left:  0.1em black solid;
+    border-right: 0.1em black solid;
+    border-radius: 0.5em 0.5em 0 0;
+}
+
+.selected
+{
+    border-bottom: 0.3em white solid;
+}
+
+.unselected
+{
+    padding-bottom: 0.5em;
+    color: #24B;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.option-body
+{
+    padding: 1em;
+}
+
+.changelog
+{
+    margin: 0 0 1em 0.5em;
+}
+
+.changelog h1
+{
+    font-size: smaller;
+    margin: 0;
+    padding: 0;
+}
+
+.changelog time
+{
+    font-size: smaller;
+}
+
+.changelog ul
+{
+    margin: 0 0 0 2em;
+    padding: 0 1em 0 0;
+}
+
+.changelog li
+{
+    margin: 0 0 0 1em;
+    paddding: 0 0 0 1em;
+}
+
+.hidden
+{
+    visibility: hidden;
+    display: none;
+}
+
+.visible
+{
+    visibility: visible;
+    display: block;
+}
+
+.explanation
+{
+    margin: 0.5em;
+}
+
+.explanation dl
+{
+    display: inline;
+    margin: 0 0 0 1em;
+}
+
+.explanation dt
+{
+    display: inline;
+    font-weight: bold;
+}
+
+.explanation dd
+{
+    display: inline;
+    margin: 0 2em 0 0.5em;
+}
+
+dl#contextMenusFormat
+{
+    border-style: dotted;
+    border-color: gray;
+    padding: 1em 2em 1em 1em;
+    margin: 1em;
+}
+
+#contextMenusFormat dt
+{
+    display: inline;
+    font-weight: bold;
+}
+
+#contextMenusFormat dd
+{
+    display: inline;
+    margin: 1em 0 1em 1em;
+}
+
+#context-menus-format
+{
+    line-height: 100%;
+}
+
+#context-menus-format input.format
+{
+    height: 1.1em;
+    line-height: inherit;
+    font: inherit;
+}
+
+dl#notificationsRadio
+{
+    border-style: dotted;
+    border-color: gray;
+    padding: 1em 2em 1em 1em;
+    margin: 1em;
+}
+
+#notificationsRadio dt
+{
+    font-weight: bold;
+}
+
+#notificationsRadio dd
+{
+    margin: 0 2em 1em 2em;
+}
+
+#notification-time
+{
+    margin-right: 1em;
+}
+
+input.notification-style
+{
+    margin: 0 1em 0 0;
+}
+
+.button
+{
+    display: inline;
+    padding: 0.2em;
+    color: #24B;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.button-disabled
+{
+    display: inline;
+    padding: 0.2em;
+}
+
+.icon-button
+{
+    position: relative;
+    top: -20%;
+    width: 1em;
+    height: 1em;
+    cursor: pointer;
+}
+
+.icon-container
+{
+    width: 1em;
+    height: 1em;
+    margin: auto;
+    vertical-align: middle;
+}
+
+.add-icon
+{
+    position: relative;
+    top: -10%;
+    width: 1em;
+    height: 1em;
+    cursor: pointer;
+}
+
+.add-icon-container
+{
+    display: inline;
+    width: 1em;
+    height: 1em;
+    margin: auto;
+    vertical-align: middle;
+}
+
+.status-success
+{
+    color: #339966;
+}
+
+.status-noaccess
+{
+    color: #000000;
+}
+
+.status-error
+{
+    color: #cc0000;
+}
+
+ul.menu
+{
+    display: inline;
+    list-style: none;
+}
+
+ul.menu li
+{
+    display: inline;
+    margin: 0 2em 0 0;
+}
+
+table
+{
+    border-style: dotted;
+    padding: 1em 1em 1em 1em;
+    margin: 1em;
+    border-spacing: 1em 0.1em;
+}
+
+tr {
+    text-align: left;
+}
+
+th {
+    margin-right: 1em;
+}
+
+#shortcutsTable
+{
+    width: 97%;
+}
+
+#shortcutsTable th.move
+{
+    text-align: center;
+    width: 6%;
+}
+
+#shortcutsTable td.move
+{
+    text-align: center;
+}
+
+#shortcutsTable th.enable
+{
+    width: 5%;
+    text-align: center;
+}
+
+#shortcutsTable td.enable
+{
+    text-align: center;
+}
+
+#shortcutsTable th.format
+{
+    width: 35%;
+}
+
+#shortcutsTable td.format
+{
+    line-height: 100%;
+}
+
+#shortcutsTable input.format
+{
+    height: 1.1em;
+    line-height: inherit;
+    font: inherit;
+}
+
+#shortcutsTable th.shortener
+{
+    width: 12.5%;
+}
+
+#shortcutsTable th.key
+{
+    width: 30%;
+}
+
+
+#shortcutsTable th.copy
+{
+    text-align: center;
+    width: 5%;
+}
+
+#shortcutsTable th.delete
+{
+    text-align: center;
+    width: 6.5%;
+}
+
+#shortenersTable
+{
+    width: 97%;
+}
+
+#shortenersTable th.shortener
+{
+    width: 10%;
+    text-align: center;
+}
+
+#shortenersTable td.shortener
+{
+    text-align: center;
+}
+
+#shortenersTable th.status
+{
+    width: 50%;
+}
+
+#shortenersTable th.grant
+{
+    width: 20%;
+}
+
+#shortenersTable th.revoke
+{
+    width: 20%;
+}

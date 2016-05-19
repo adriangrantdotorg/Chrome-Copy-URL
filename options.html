@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <title>Copy URL+ options</title>
+    <link rel="stylesheet" type="text/css" href="stylesheets/options.css">
+    <script type="application/javascript" src="scripts/options.js"></script>
+    <script type="application/javascript" src="scripts/buttons.js"></script>
+    <script type="application/javascript" src="scripts/localstorage.js"></script>
+    <script type="application/javascript" src="scripts/keyboard.js"></script>
+    <script type="application/javascript" src="scripts/oauth.js"></script>
+
+  </head>
+  
+  <body>
+
+    <nav>
+
+      <ul>
+	
+	<li id="shortcutsTab" class="selected">Keyboard Shortcuts</li>
+	<li id="contextMenusTab" class="unselected">Context Menus</li>
+	<li id="shortenersTab" class="unselected">URL Shorteners</li>
+	<li id="notificationsTab" class="unselected">Notifications</li>
+	<li id="changelogTab" class="unselected">Changelog</li>
+
+      </ul>
+
+    </nav>
+
+    <div id="shortcutsBody" class="option-body visible">
+      
+      <div class="explanation">
+
+	Replacement rules (case-insensitive): 
+
+	<dl>
+
+	  <dt>${sURL}</dt>
+	  <dd>by shortened URL</dd>
+
+	  <dt>${URL}</dt>
+	  <dd>by long URL</dd>
+	  
+	  <dt>${title}</dt>
+	  <dd>by title</dd>
+	  
+	  <dt>${text}</dt>
+	  <dd>by selected text</dd>
+	    
+	  <dt>${n}</dt>
+	  <dd>by newline</dd>
+	  
+	</dl>
+	
+      </div>
+
+      <ul class="menu">
+
+	<li>
+	  <div class="add-icon-container">
+	    <canvas id="add-icon" class="add-icon" width="0" heigth="0"></canvas>
+	  </div>
+	  <div id="add" class="button"> Add a shortcut</div>
+	</li>
+
+	<li>
+	  <div id="disable-all" class="button">&#187; Disable all shortcuts</div>
+	</li>
+
+	<li>
+	  <div id="update-context-menus1" class="button">&#187; Update context menus</div>
+	</li>
+
+	<li>
+	  <div id="disable-all-context-menus1" class="button">&#187; Disable all context menus</div>
+	</li>
+
+      </ul>
+
+      <table id="shortcutsTable">
+
+	<thead>
+	  <tr>
+	    <th class="move">move</th>
+	    <th class="enable">enable</th>
+	    <th class="format">format</th>
+	    <th class="shortener">shortener</th>
+	    <th class="key">key</th>
+	    <th class="copy">copy</th>
+	    <th class="delete">delete</th>
+	  </tr>
+	</thead>
+
+	<tbody id="shortcutsTableBody">
+	</tbody>
+
+      </table>
+
+      <ul class="menu">
+	
+	<li>
+	  <div id="default" class="button">&#187; Default</div>
+	</li>
+
+      </ul>
+      
+    </div>
+
+    <div id="contextMenusBody" class="hidden">
+      
+      <div class="explanation">
+
+	Replacement rules (case-insensitive): 
+
+	<dl>
+
+	  <dt>${format}</dt>
+	  <dd>by format</dd>
+
+	  <dt>${shortener}</dt>
+	  <dd>by URL shortener</dd>
+	  
+	  <dt>${key}</dt>
+	  <dd>by shortcut key</dd>
+	  
+	</dl>
+
+      </div>
+      
+      <ul class="menu">
+
+	<li>
+	  <div id="update-context-menus2" class="button">&#187; Update context menus</div>
+	</li>
+
+	<li>
+	  <div id="disable-all-context-menus2" class="button">&#187; Disable all context menus</div>
+	</li>
+
+      </ul>
+
+      <dl id="contextMenusFormat">
+	
+	<dt>Menu format:</dt>
+	<dd><div id="context-menus-format" class="button"></div></dd>
+
+      </dl>
+
+    </div>
+    
+    <div id="shortenersBody" class="hidden">
+
+      <div class="explanation">
+
+	Some URL shorteners give their users unique short URLs, its analytics,
+	and other per-user services if they have logged in.
+
+	Allowing Copy URL+ to access the URL shorteners will enable you to obtain
+	those benefits without sharing your login ID and password with the
+	extension.
+
+      </div>
+      
+      <ul class="menu">
+
+	<li>
+	  <div id="revoke-all" class="button">&#187; Revoke all accesses</div>
+	</li>
+	
+      </ul>
+      
+      <table id="shortenersTable">
+	
+	<thead>
+	  <tr>
+	    <th class="shortener">shortener</th>
+	    <th class="status">status</th>
+	    <th class="grant">grant</th>
+	    <th class="revoke">revoke</th>
+	  </tr>
+	</thead>
+
+	<tbody id="shortenersTableBody">
+	</tbody>
+
+      </table>
+      
+    </div>
+    
+    <div id="notificationsBody" class="hidden">
+      
+      <div class="explanation">
+	
+	Copy URL+ can notify you when URLs are copied to clipboard.
+	Choose your notifications style:
+
+      </div>
+      
+      <dl id="notificationsRadio">
+	
+	<dt>
+	  <input type="radio" id="notification-none" class="notification-style">None
+	</dt>
+	<dd>disable notifications.</dd>
+	  
+	<dt>
+	  <input type="radio" id="notification-tooltip" class="notification-style">Tooltip ( recommended )
+	</dt>
+	<dd>appear inside your browser.</dd>
+	
+	<dt>
+	  <input type="radio" id="notification-web" class="notification-style">Web Notifications
+	</dt>
+	<dd>appear outside your browser.</dd>
+
+	<dt>Display time</dt>
+	<dd><input type="number" id="notification-time" min="0" max="60" step="0.1"></input>seconds</dd>
+	
+      </dl>
+      
+    </div>
+
+    <div id="changelogBody" class="hidden">
+      
+      <div class="changelog">
+
+        <h1>Version 1.1.1</h1>
+        
+        <time datetime="2012-12-05" pubdate>2012-12-05</time>
+        
+        <ul>
+
+          <li>Migrated to Manifest V2</li>
+          
+        </ul>
+
+      </div>
+
+      <div class="changelog">
+
+	<h1>Version 1.1.0</h1>
+	
+	<time datetime="2011-11-20" pubdate>2011-11-20</time>
+	
+	<ul>
+	  
+	  <li>Added context menus</li>
+	  <li>Various code fixes</li> 
+	  
+	</ul>
+	
+      </div>
+
+      <div class="changelog">
+	
+	<h1>Version 1.0.3</h1>
+	
+	<time datetime="2011-11-10" pubdate>2011-11-10</time>
+	
+	<ul>
+	  
+	  <li>Fixed a default shortcut</li> 
+	  
+	</ul>
+	
+      </div>
+
+      <div class="changelog">
+	
+	<h1>Version 1.0.2</h1>
+	
+	<time datetime="2011-11-09" pubdate>2011-11-09</time>
+	
+	<ul>
+	  
+	  <li>Fixed to reject CONTROL + C key when text is selected</li>
+	  
+	</ul>
+	
+      </div>
+
+      <div class="changelog">
+	
+	<h1>Version 1.0.1</h1>
+	
+	<time datetime="2011-11-09" pubdate>2011-11-09</time>
+	
+	<ul>
+	  
+	  <li>Fixed default shortcut keys</li>
+	  
+	</ul>
+	
+      </div>
+
+      <div class="changelog">
+	
+	<h1>Version 1.0.0</h1>
+	
+	<time datetime="2011-11-09" pubdate>2011-11-09</time>
+	
+	<ul>
+	  
+	  <li>Initial release for public</li>
+	  
+	</ul>
+	
+      </div>
+
+      <div class="changelog">
+	
+	<h1>Version 0.0.5</h1>
+	
+	<time datetime="2011-11-09" pubdate>2011-11-09</time>
+	
+	<ul>
+	  
+	  <li>Minor bug fix</li>
+
+	</ul>
+	
+      </div>
+
+      <div class="changelog">
+	
+	<h1>Version 0.0.4</h1>
+	
+	<time datetime="2011-11-08" pubdate>2011-11-08</time>
+	
+	<ul>
+	  
+	  <li>Minor bug fix</li>
+
+	</ul>
+	
+      </div>
+
+      <div class="changelog">
+	
+	<h1>Version 0.0.3</h1>
+	
+	<time datetime="2011-11-06" pubdate>2011-11-06</time>
+	
+	<ul>
+	  
+	  <li>Minor bug fix</li>
+	  <li>Design fix</li>
+
+	</ul>
+	
+      </div>
+
+      <div class="changelog">
+	
+	<h1>Version 0.0.2</h1>
+	
+	<time datetime="2011-11-05" pubdate>2011-11-05</time>
+	
+	<ul>
+	  
+	  <li>Added copy and move buttons in Keyboard Shortcuts</li>
+	  <li>Added notifications display time setting</li>
+	  <li>Added support for command key on Mac OSX</li>
+	  <li>Fixed tooltip notifications design</li>
+
+	</ul>
+      </div>
+
+      <div class="changelog">
+	<h1>Version 0.0.1</h1>
+	
+	<time datetime="2011-11-05" pubdate>2011-11-05</time>
+	
+	<ul>
+	  
+	  <li>Initial release for testers</li>
+
+	</ul>
+
+      </div>
+      
+    </div>
+
+  </body>
+
+</html>
+
+    
